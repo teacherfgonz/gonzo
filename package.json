@@ -21,12 +21,17 @@
     "Express",
     "MongoDB"
   ],
-  "author": "Alejandro Gonzalez y Fracisco Gonzalez",
+  "author": "Francisco González <teacherfranciscogonz@gmail.com>",
+  "contributors": ["Alejandro González <thytanium@gmail.com>"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/teacherfgonz/gonzo/issues"
   },
   "homepage": "https://github.com/teacherfgonz/gonzo#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
@@ -39,8 +44,6 @@
     "mini-css-extract-plugin": "^2.4.3",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-refresh": "^0.10.0",
     "sass": "^1.43.3",
     "sass-loader": "^12.2.0",
