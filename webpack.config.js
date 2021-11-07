@@ -8,7 +8,6 @@ const isProduction = process.env.NODE_ENV === "production";
 const cssLoaders = [
   isProduction ? MiniCssExtractPlugin.loader : "style-loader",
   "css-loader",
-  "postcss-loader",
 ];
 
 module.exports = {
