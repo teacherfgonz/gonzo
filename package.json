@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop:app": "webpack serve",
-    "develop:server": "nodemon ./src/api/server.js",
+    "develop:server": "nodemon --watch api ./src/api/server.js",
     "dev": "concurrently \"npm:develop:server\" \"npm:develop:app\"",
     "production": "NODE_ENV=production webpack",
     "prod": "npm run production",

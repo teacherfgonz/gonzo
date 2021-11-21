@@ -1,53 +1,64 @@
 import React from "react";
 import { Outlet } from "react-router";
 import {
-  Collapse,
+  Col,
+  Container,
   Nav,
   NavItem,
   NavLink,
   Navbar,
   NavbarBrand,
-  NavbarText,
   NavbarToggler,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  Row,
 } from "reactstrap";
 
 function AppLayout() {
   return (
-    <main>
-      <Navbar color="light" expand="md" light>
-        <NavbarBrand href="/">gonzo</NavbarBrand>
+    <>
+      <Navbar color="dark" expand="md" dark>
+        <NavbarBrand href="/" className="px-3">
+          Gonzo
+        </NavbarBrand>
         <NavbarToggler onClick={function noRefCheck() {}} />
-        <Collapse navbar>
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown inNavbar nav>
-              <DropdownToggle caret nav>
-                Options
-              </DropdownToggle>
-              <DropdownMenu end>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-          <NavbarText>Simple Text</NavbarText>
-        </Collapse>
       </Navbar>
-      <Outlet />
-    </main>
+      <Container fluid>
+        <Row>
+          <Col
+            tag="nav"
+            id="sidebarMenu"
+            md={3}
+            lg={2}
+            className="d-md-block bg-light sidebar collapse"
+          >
+            <div className="position-sticky pt-3">
+              <Nav className="flex-column">
+                <NavItem>
+                  <NavLink href="#dashboard">Dashboard</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#dashboard">Orders</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#dashboard">Products</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#dashboard">Customers</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#dashboard">Reports</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#dashboard">Integrations</NavLink>
+                </NavItem>
+              </Nav>
+            </div>
+          </Col>
+          <Col md={9} lg={10} className="p-md-4">
+            <Outlet />
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 
