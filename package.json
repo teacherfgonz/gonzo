@@ -4,8 +4,9 @@
   "description": "CRM Gonzo App",
   "main": "index.js",
   "scripts": {
-    "develop": "webpack serve",
-    "dev": "npm run develop",
+    "develop:app": "webpack serve",
+    "develop:server": "nodemon ./src/api/server.js",
+    "dev": "concurrently \"npm:develop:server\" \"npm:develop:app\"",
     "production": "NODE_ENV=production webpack",
     "prod": "npm run production",
     "build": "npm run production",
@@ -33,6 +34,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.1.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "joi": "^17.4.2",
     "mongoose": "^6.0.12",
@@ -52,6 +54,7 @@
     "@babel/preset-react": "^7.14.5",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "babel-loader": "^8.2.3",
+    "concurrently": "^6.4.0",
     "core-js": "^3.18.3",
     "css-loader": "^6.2.0",
     "html-webpack-plugin": "^5.4.0",
