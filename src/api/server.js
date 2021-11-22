@@ -1,26 +1,16 @@
-const cors = require("cors");
-const bcrypt = require("bcrypt");
-const express = require("express");
-const mongoose = require("mongoose");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+const app = require("./app");
 const config = require("./config");
 
-const app = express();
-
-app.use(
-  cors({
-    origin: config.cors.origins,
-  })
-);
-app.use(express.json());
-app.use(express.static("public"));
-app.use(passport.initialize());
-
-app.get("/", (req, res) => {
-  res.send("Working!");
+const server = app.listen(config.port, () => {
+  console.log(`🚀 Running on http://localhost:${config.port}`);
 });
 
-app.listen(config.port, () => {
-  console.log(`Listening on port ${config.port}`);
-});
+function gracefulShutdown() {
+  console.debug("SIGTERM/SIGINT signal received: closing HTTP server");
+  server.close(() => {
+    console.debug("HTTP server closed");
+  });
+}
+
+process.on("SIGTERM", gracefulShutdown);
+process.on("SIGINT", gracefulShutdown);
